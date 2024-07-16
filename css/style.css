@@ -369,7 +369,7 @@ span{
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
-    color: var(--text-color);
+    color: var(--bg-color);
     background: var(--second-bg-color);
     border-radius: .8rem;
     margin: .7rem 0;
