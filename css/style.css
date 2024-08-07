@@ -268,7 +268,11 @@ span{
     border-radius: 50%;
 }
 .portfolio-layer a i{
-    font-size: 2rem;
+    font-size: 5rem;
+    color: var(--second-bg-color);
+}
+.portfolio-layer a iconify-icon{
+    font-size: 5rem;
     color: var(--second-bg-color);
 }
 
