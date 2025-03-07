@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width device-width, initial-scale=1.0">
+    <title>MasGas</title>
+    <meta charset="UTF-8" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            min-height: 70vh;
+            padding: 6rem 5% 5rem;
+        }
+
+        :root {
+            --bg-color: #0D0D0D; /* Negro Profundo (Fondo Principal) */
+        --second-bg-color: #1A1A1A; /* Gris Oscuro (Secciones Secundarias) */
+        --text-color: white; /* Azul Eléctrico (Texto Principal) */
+        --main-color: #9D00FF; /* Morado Neón (Elementos Destacados) */
+        }
+
+        .header {
+            width: 100%;
+            padding: 2rem 9%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .header.sticky {
+            border-bottom: .1rem solid rgba(0, 0, 0, .2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--text-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .hero {
+            background-image: url('../images/bannermasgas.PNG');
+            /* Reemplaza con la ruta de tu imagen */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-img img {
+            width: 35vw;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2.4rem);
+            }
+
+            100% {
+                transform: translateY();
+            }
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 400;
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            text-align: justify;
+        }
+
+        .social-media h1 {
+            font-weight: 400;
+            font-size: 2rem;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--second-bg-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--second-bg-color);
+            margin: 5rem 1.5rem 0rem 2rem;
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .productos {
+            padding: 50px;
+        }
+
+        .producto {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .producto-imagen {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin-right: 20px;
+        }
+
+        .vistas {
+            background-color: #9D00FF;
+        }
+
+        .vistas h1 {
+            font-weight: 400;
+            font-size: 6rem;
+            color: var(--text-color);
+        }
+
+        .vistas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .vistas-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .vistas-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            font-size: 2rem;
+            border-radius: 10%;
+        }
+
+        .vistas-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .skills h2 {
+            font-weight: 400;
+            font-size: 6rem;
+            color: var(--bg-color);
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .skills-container .skills-box {
+            flex: 1 1 25rem;
+            background: var(--main-color);
+            padding: 3rem 2rem 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+        }
+
+        .skills-container .skills-box:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .skills-box i {
+            font-size: 5rem;
+            color: var(--second-bg-color);
+        }
+
+        .skills-box h3 {
+            font-size: 2.6rem;
+            color: white;
+        }
+
+        .skills-box p {
+            font-size: 1.6rem;
+            margin: 1rem 0 3rem;
+        }
+        .team-section .team-section{
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .team-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .team-image {
+            flex: 1;
+            text-align: center;
+        }
+        .team-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .team-members {
+            flex: 1;
+            padding-left: 30px;
+        }
+        .member {
+            background-color: #0077be;
+            color: white;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+        }
+
+        .footer-text p {
+            font-size: 1.6rem;
+            color: white;
+        }
+
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTop a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-iconTop a i {
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+
+        @media (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .header {
+                padding: 2rem 3%;
+            }
+
+            section {
+                padding: 10rem 3% 2rem;
+            }
+
+            .skills {
+                padding-bottom: 7rem;
+            }
+
+            .vistas {
+                padding-bottom: 7rem;
+            }
+
+            .footer {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+
+            .navbar.active {
+                display: block;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+                text-align: center;
+            }
+
+            .home {
+                flex-direction: column;
+            }
+
+            .home-content h3 {
+                font-size: 2.6rem;
+            }
+
+            .home-content h1 {
+                font-size: 5rem;
+            }
+
+            .home-img img {
+                width: 70vw;
+                margin-top: 4rem;
+
+            }
+
+            .about {
+                flex-direction: column-reverse;
+            }
+
+            .about img {
+                width: 70vw;
+                margin-top: 4rem;
+            }
+
+            .vistas h2 {
+                margin-bottom: 3rem;
+            }
+
+            .vistas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 617px) {
+            .vistas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .contact form .input-box input {
+                width: 100%;
+
+            }
+        }
+
+        @media (max-width: 365px) {
+            .home-img img {
+                width: 90vw;
+            }
+
+            .about-img img {
+                width: 90vw;
+            }
+
+            .footer {
+                flex-direction: column-reverse;
+            }
+
+            .footer p {
+                text-align: center;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <a href="#" class="logo">Mi Portafolio</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="../index.html" class="active">Home</a>
+        </nav>
+    </div>
+    <section class="home" id="home">
+        <div class="home-content" data-sr-id="0"
+            style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+            <h1></h1>
+            <h1 data-sr-id="15"
+                style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+            </h1>
+            <h3><span class="multiple-text"></span><span class="typed-cursor" aria-hidden="true"></span></h3>
+            <p data-sr-id="17"
+                style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+                Mas Gas es una empresa que busca revolucionar el servicio de entrega de balones de gas de las
+                distribuidoras autotizadas mediante la implementación de una aplicación de comercio electrónico. Esta
+                innovadora herramienta esta diseñada
+                para optimizar los procesos de venta, la toma de pedidos y la realización de entregas seguras y
+                eficientes. La app beneficiará tanto a los clientes como a los repartidores y dueños de centrales de
+                balones de gas, facilitando una experiencia
+                mas fluida, organizada y satisfactoria para todos.</p>
+            <div class="social-media">
+                <h2>Codigo Fuente<a href="https://github.com/Angelzaki/my-app-react-native-masgas" target="_blank"><i
+                            class="bx bx-code-alt"></i></a></h2>
+            </div>
+            <!-- <a href="" class="btn">Descargar CV</a> -->
+        </div>
+        <div class="home-img" data-sr-id="6"
+            style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+            <img src="../images/Proyecto2.PNG" alt="">
+        </div>
+    </section>
+    <section class="vistas" id="vistas">
+        <div class="vistas">
+            <h1>Vistas</h1>
+            <div class="vistas-grid">
+                <div class="vistas-item">
+                    <img src="../images/Movil1.JPG"vista 1">
+                </div>
+                <div class="vistas-item">
+                    <img src="../images/movil2.JPG">
+                </div>
+                <div class="vistas-item">
+                    <img src="../images/movil3.JPG"vista 3">
+                </div>
+                <div class="vistas-item">
+                    <img src="../images/movil4.JPG">
+                </div>
+                <div class="vistas-item">
+                    <img src="../images/movil5.JPG">
+                </div>
+                <div class="vistas-item">
+                    <img src="../images/movil6.JPG" alt="vista 6">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="skills" id="skills">
+        <h2 class="heading" data-sr-id="3"
+            style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+            Habilidades usadas</h2>
+        <div class="skills-container" data-sr-id="7"
+            style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+            <div class="skills-box">
+                <i><iconify-icon icon="devicon:html5"></iconify-icon></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="skill-icons:css"></iconify-icon></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="devicon:react"></iconify-icon></i>
+                <h3>React</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="vscode-icons:file-type-node"></iconify-icon></i>
+                <h3>Node.js</h3>
+            </div>
+            <div class="skills-box">
+                <i>
+                    <img src="../images/apium.svg" width="55px" height="55px" alt="Ícono de Appium" />
+                </i>
+                <h3>Appium</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="devicon:firebase"></iconify-icon></i>
+                <h3>Firebase</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="devicon:postman"></iconify-icon></i>
+                <h3>Postman</h3>
+            </div>
+            <div class="skills-box">
+                <i><iconify-icon icon="devicon:vscode"></iconify-icon></i>
+                <h3>Visual Studio Code</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright © 2025 by Angel Salazar | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#header"><i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="../js/scriptVistMasGasMovil.js"></script>
+    <!--
+    <div class="hero">
+        <h1>Potencia tus ventas al menos un 200%</h1>
+    </div>
+    
+    <div class="productos">
+        <h2>Nuestro producto</h2>
+        <div class="producto">
+            <div class="producto-imagen"></div>
+            <p>Descripción del producto 1...</p>
+        </div>
+        <div class="producto">
+            <div class="producto-imagen"></div>
+            <p>Descripción del producto 2...</p>
+        </div>
+    </div>
+-->
+</body>
+
+</html>

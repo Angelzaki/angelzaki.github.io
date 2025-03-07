@@ -11,10 +11,12 @@
     font-family: 'Poppins', sans-serif;
 }
 :root{
-    --bg-color: #731212;
-    --second-bg-color: #000000;
-    --text-color: #F2E6DF;
-    --main-color: #1475CC; 
+        --bg-color: #0D0D0D; /* Negro Profundo (Fondo Principal) */
+        --second-bg-color: #1A1A1A; /* Gris Oscuro (Secciones Secundarias) */
+        --text-color: #00A3FF; /* Azul Eléctrico (Texto Principal) */
+        --main-color: #9D00FF; /* Morado Neón (Elementos Destacados) */
+        --accent
+    
 }
 html{
     font-size: 62.5%;
@@ -416,6 +418,7 @@ span{
     font-size: 2.4rem;
     color: var(--second-bg-color);
 }
+
 input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
